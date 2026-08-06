@@ -8,7 +8,7 @@ Personal Claude Code skills collection. Each subdirectory is one skill.
 |-------|-------------|
 | [handoff](./handoff/) | Session continuity — auto-inject previous session context at startup, archive at session end with `/handoff` |
 
-## Installation (after container rebuild)
+## Installation
 
 ```bash
 # Clone directly into ~/.claude/skills
@@ -37,15 +37,4 @@ Then add the SessionStart hook to `~/.claude/settings.json`:
     ]
   }
 }
-```
-
-## Adding a new skill
-
-```bash
-mkdir -p ~/.claude/skills/<skill-name>
-# create SKILL.md and any supporting files
-git add .
-git commit -m "feat: add <skill-name> skill"
-git push personal main
-git -c http.sslVerify=false push enterprise main
 ```
