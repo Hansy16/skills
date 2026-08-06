@@ -10,16 +10,31 @@ Personal Claude Code skills collection. Each subdirectory is one skill.
 
 ## Installation
 
+### In Container
+
 ```bash
 # Clone directly into ~/.claude/skills
-git clone https://github.com/Hansy16/skills.git ~/.claude/skills
+git clone https://github.wdf.sap.corp/I578336/skills.git ~/.claude/skills
 
 # Install hook scripts for each skill
 cp ~/.claude/skills/handoff/hooks/read-handoff.sh ~/.claude/hooks/
 chmod +x ~/.claude/hooks/read-handoff.sh
 ```
 
-Then add the SessionStart hook to `~/.claude/settings.json`:
+### Locally
+
+```bash
+# Clone into your personal skills directory
+git clone https://github.wdf.sap.corp/I578336/skills.git ~/.claude/skills
+
+# Install hook scripts for each skill
+cp ~/.claude/skills/handoff/hooks/read-handoff.sh ~/.claude/hooks/
+chmod +x ~/.claude/hooks/read-handoff.sh
+```
+
+### Register Hook
+
+Add the SessionStart hook to `~/.claude/settings.json`:
 
 ```json
 {
@@ -38,3 +53,5 @@ Then add the SessionStart hook to `~/.claude/settings.json`:
   }
 }
 ```
+
+**For local setup**: Replace `/root/.claude/hooks/read-handoff.sh` with `$HOME/.claude/hooks/read-handoff.sh`.

@@ -20,15 +20,20 @@ handoff/
 
 ## Installation
 
-**1. Skill** — if you cloned the skills repo into `~/.claude/skills`, this is already in place.
+**1. Clone the skills repo into `~/.claude/skills`**
+```bash
+git clone https://github.wdf.sap.corp/I578336/skills.git ~/.claude/skills
+```
 
-**2. Hook script**
+**2. Copy hook script to `~/.claude/hooks/`**
 ```bash
 cp ~/.claude/skills/handoff/hooks/read-handoff.sh ~/.claude/hooks/
 chmod +x ~/.claude/hooks/read-handoff.sh
 ```
 
 **3. Register hook in `~/.claude/settings.json`**
+
+For container setup, use `/root/.claude/hooks/read-handoff.sh`:
 ```json
 {
   "hooks": {
@@ -39,6 +44,25 @@ chmod +x ~/.claude/hooks/read-handoff.sh
           {
             "type": "command",
             "command": "/root/.claude/hooks/read-handoff.sh"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+For local setup, use `$HOME/.claude/hooks/read-handoff.sh`:
+```json
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/.claude/hooks/read-handoff.sh"
           }
         ]
       }
